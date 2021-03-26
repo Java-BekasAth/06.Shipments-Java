@@ -1,0 +1,524 @@
+{
+  "id": "e4e02eb6-8b5c-4021-a63f-85b79802fc2c",
+  "name": "Άσκηση Shipments",
+  "targets": [],
+  "description": "Μια εταιρεία ταχυμεταφορών (courier) προσφέρει δύο ειδών υπηρεσίες αποστολής δεμάτων: αποστολές στην Ελλάδα (Shipment) και αποστολές στο εξωτερικό (International). \nΣτην άσκηση αυτή καλείστε να δημιουργήσετε μία εφαρμογή που θα υπολογίζει το κόστος αποστολής των δεμάτων.\n\nΑρχικά θα υλοποιήσετε την κλάση Shipment (που αναπαριστά μία αποστολή) με τις εξής λειτουργίες:\n●  Δημιουργία αποστολής με μία δοσμένη τιμή του βάρους (weight) και της διεύθυνσης αποστολής (address) (τα στοιχεία θα πληκτρολογούνται στη γραφική διασύνδεση που θα υλοποιήσετε σε επόμενο βήμα).\n●  Μια μέθοδο toString, η οποία επιστρέφει ένα String με τις βασικές πληροφορίες της αποστολής, δηλαδή του βάρους και της διεύθυνσης αποστολής. \n●  Μια μέθοδο με όνομα getPrice η οποία να υπολογίζει και επιστρέφει το κόστος αποστολής, όπου κάθε κιλό χρεώνεται με 4 Ευρώ.\n\n\nΗ κλάση International που επεκτείνει την κλάση Shipment αναπαριστά τις αποστολές στο εξωτερικό και έχει τις εξής λειτουργίες:\n●  Δημιουργία αποστολής με μία δοσμένη τιμή του βάρους και της διεύθυνσης αποστολής, κι επιπλέον μία δοσμένη τιμή της χώρας αποστολής (country) (τα στοιχεία θα πληκτρολογούνται στη γραφική διασύνδεση που θα δημιουργήσετε).\n●  Μια μέθοδο toString, η οποία επιστρέφει ένα String με τα βασικά στοιχεία της αποστολής (βάρος, διεύθυνση) και χώρα αποστολής.\n●  Μια μέθοδο με όνομα getPrice η οποία να υπολογίζει και να επιστρέφει το κόστος αποστολής το οποίο ισούται με το βασικό κόστος αποστολής (κάθε κιλό χρεώνεται με 4 Ευρώ) συν το 50% του βασικού κόστους.\n\n\nΗ κλάση με όνομα Branch αναπαριστά ένα υποκατάστημα της εταιρείας ταχυμεταφορών και έχει τις εξής λειτουργίες:\n●  Δημιουργία υποκαταστήματος με συγκεκριμένο όνομα.\n●  Καταχώρηση νέας αποστολής στο υποκατάστημα μέσω μιας μεθόδου με όνομα addShipment.\n●  Υπολογίζει και επιστρέφει το συνολικό κόστος όλων των αποστολών (εσωτερικού και εξωτερικού), ενώ ταυτόχρονα εμφανίζει τα στοιχεία όλων των αποστολών στην κονσόλα μέσω μιας μεθόδου με όνομα shipmentInfo.\n\n\nΣτην κλάση με όνομα TestClass θα πρέπει να συμπεριλάβετε μέθοδο main, στην οποία:\n●  θα δημιουργούνται και θα προστίθενται σε μια ArrayList τουλάχιστον 4 υποκαταστήματα (αντικείμενα Branch) μιας εταιρείας courier στη Θεσσαλονίκη.\n●  Θα δημιουργείται/εμφανίζεται η γραφική διασύνδεση που θα δημιουργήσετε στην κλάση InputFrame.\n\nΣτην κλάση InputFrame δημιουργείται η γραφική διασύνδεση χρήστη. Σε αυτή τη γραφική διασύνδεση θα πρέπει να προσέξετε τα εξής:\n●  Θα πρέπει να υπάρχει ένα πεδίο με όνομα branches τύπου ArrayList<Branch> το οποίο θα πρέπει να ενημερωθεί με τα υποκαταστήματα που υπάρχουν στην ArrayList που δημιουργείται στη μέθοδο main της TestClass. \n●  Υπάρχει ένα πεδίο για την εισαγωγή δεδομένων από τον χρήστη με όνομα branchNameField τύπου JTextField όπως φαίνεται και στην παρακάτω εικόνα, για την εισαγωγή του ονόματος του υποκαταστήματος.\n●  Υπάρχει ένα πλήκτρο με όνομα calculateBranchCostButton και κείμενο “Calculate Branch Cost\". Επιλέγοντας το πλήκτρο αυτό θα πρέπει εμφανίζονται στην κονσόλα τα στοιχεία και το συνολικό κόστος όλων των αποστολών του Branch με το όνομα που έχει πληκτρολογήσει ο χρήστης στο πεδίο branchNameField. Αν δεν υπάρχει υποκατάστημα με τέτοιο όνομα τότε θα πρέπει να εμφανίζεται στην κονσόλα σχετικό μήνυμα.",
+  "exercise_project_info": {
+    "title": "ShipmentsMsc",
+    "starting_project": true
+  },
+  "requirements": [
+    {
+      "type": "class",
+      "class_id": 0,
+      "name": "Shipment",
+      "is_abstract": false,
+      "is_interface": false,
+      "related_requirements": [
+        {
+          "type": "contains-field",
+          "main_class_id": 0,
+          "field": {
+            "name": "weight",
+            "modifiers": [
+              "PRIVATE"
+            ],
+            "type": {
+              "name": "double",
+              "type_arguments": []
+            }
+          },
+          "include_setter": false,
+          "include_getter": false
+        },
+        {
+          "type": "contains-field",
+          "main_class_id": 0,
+          "field": {
+            "name": "address",
+            "modifiers": [
+              "PRIVATE"
+            ],
+            "type": {
+              "name": "String",
+              "type_arguments": []
+            }
+          },
+          "include_setter": false,
+          "include_getter": false
+        },
+        {
+          "type": "constructor",
+          "main_class_id": 0,
+          "constructor_req": {
+            "modifiers": [
+              "PUBLIC"
+            ],
+            "parameters": [
+              {
+                "name": "a1",
+                "type": {
+                  "name": "double",
+                  "type_arguments": []
+                }
+              },
+              {
+                "name": "a2",
+                "type": {
+                  "name": "String",
+                  "type_arguments": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "override-object-method",
+          "main_class_id": 0,
+          "object_method": "TO_STRING"
+        },
+        {
+          "type": "method",
+          "main_class_id": 0,
+          "method": {
+            "name": "getPrice",
+            "modifiers": [
+              "PUBLIC"
+            ],
+            "type": {
+              "name": "double",
+              "type_arguments": []
+            },
+            "parameters": []
+          },
+          "overriding_super_class_method": false,
+          "overriding_super_class_method_name": ""
+        }
+      ]
+    },
+    {
+      "type": "class",
+      "class_id": 1,
+      "name": "International",
+      "is_abstract": false,
+      "is_interface": false,
+      "related_requirements": [
+        {
+          "type": "extend",
+          "main_class_id": 1,
+          "extend_class_id": 0
+        },
+        {
+          "type": "contains-field",
+          "main_class_id": 1,
+          "field": {
+            "name": "country",
+            "modifiers": [
+              "PRIVATE"
+            ],
+            "type": {
+              "name": "String",
+              "type_arguments": []
+            }
+          },
+          "include_setter": false,
+          "include_getter": false
+        },
+        {
+          "type": "constructor",
+          "main_class_id": 1,
+          "constructor_req": {
+            "modifiers": [
+              "PUBLIC"
+            ],
+            "parameters": [
+              {
+                "name": "a1",
+                "type": {
+                  "name": "double",
+                  "type_arguments": []
+                }
+              },
+              {
+                "name": "a2",
+                "type": {
+                  "name": "String",
+                  "type_arguments": []
+                }
+              },
+              {
+                "name": "a3",
+                "type": {
+                  "name": "String",
+                  "type_arguments": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "constructor-call-constructor",
+          "main_class_id": 1,
+          "constructor_method": {
+            "modifiers": [
+              "PUBLIC"
+            ],
+            "parameters": [
+              {
+                "name": "a1",
+                "type": {
+                  "name": "double",
+                  "type_arguments": []
+                }
+              },
+              {
+                "name": "a2",
+                "type": {
+                  "name": "String",
+                  "type_arguments": []
+                }
+              },
+              {
+                "name": "a3",
+                "type": {
+                  "name": "String",
+                  "type_arguments": []
+                }
+              }
+            ]
+          },
+          "call_constructor": {
+            "modifiers": [
+              "PUBLIC"
+            ],
+            "parameters": [
+              {
+                "name": "a1",
+                "type": {
+                  "name": "double",
+                  "type_arguments": []
+                }
+              },
+              {
+                "name": "a2",
+                "type": {
+                  "name": "String",
+                  "type_arguments": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "override-object-method",
+          "main_class_id": 1,
+          "object_method": "TO_STRING"
+        },
+        {
+          "type": "method",
+          "main_class_id": 1,
+          "method": {
+            "name": "getPrice",
+            "modifiers": [
+              "PUBLIC"
+            ],
+            "type": {
+              "name": "double",
+              "type_arguments": []
+            },
+            "parameters": []
+          },
+          "overriding_super_class_method": true,
+          "overriding_super_class_method_name": "Shipment"
+        },
+        {
+          "type": "method-call-method",
+          "main_class_id": 1,
+          "method": {
+            "name": "getPrice",
+            "modifiers": [
+              "PUBLIC"
+            ],
+            "type": {
+              "name": "double",
+              "type_arguments": []
+            },
+            "parameters": []
+          },
+          "call_method": {
+            "name": "getPrice",
+            "modifiers": [
+              "PUBLIC"
+            ],
+            "type": {
+              "name": "double",
+              "type_arguments": []
+            },
+            "parameters": []
+          },
+          "call_method_class_name": "Shipment",
+          "is_call_method_class_super_class": true
+        }
+      ]
+    },
+    {
+      "type": "class",
+      "class_id": 2,
+      "name": "Branch",
+      "is_abstract": false,
+      "is_interface": false,
+      "related_requirements": [
+        {
+          "type": "contains-field",
+          "main_class_id": 2,
+          "field": {
+            "name": "name",
+            "modifiers": [
+              "PRIVATE"
+            ],
+            "type": {
+              "name": "String",
+              "type_arguments": []
+            }
+          },
+          "include_setter": false,
+          "include_getter": true
+        },
+        {
+          "type": "contains-field",
+          "main_class_id": 2,
+          "field": {
+            "name": "shipments",
+            "modifiers": [
+              "PRIVATE"
+            ],
+            "type": {
+              "name": "ArrayList",
+              "type_arguments": [
+                {
+                  "name": "Shipment",
+                  "type_arguments": []
+                }
+              ]
+            }
+          },
+          "include_setter": false,
+          "include_getter": false
+        },
+        {
+          "type": "constructor",
+          "main_class_id": 2,
+          "constructor_req": {
+            "modifiers": [
+              "PUBLIC"
+            ],
+            "parameters": [
+              {
+                "name": "name",
+                "type": {
+                  "name": "String",
+                  "type_arguments": []
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "method",
+          "main_class_id": 2,
+          "method": {
+            "name": "addShipment",
+            "modifiers": [
+              "PUBLIC"
+            ],
+            "type": {
+              "name": "void",
+              "type_arguments": []
+            },
+            "parameters": [
+              {
+                "name": "s",
+                "type": {
+                  "name": "Shipment",
+                  "type_arguments": []
+                }
+              }
+            ]
+          },
+          "overriding_super_class_method": false,
+          "overriding_super_class_method_name": ""
+        },
+        {
+          "type": "method",
+          "main_class_id": 2,
+          "method": {
+            "name": "shipmentInfo",
+            "modifiers": [
+              "PUBLIC"
+            ],
+            "type": {
+              "name": "double",
+              "type_arguments": []
+            },
+            "parameters": []
+          },
+          "overriding_super_class_method": false,
+          "overriding_super_class_method_name": ""
+        },
+        {
+          "type": "method-call-method",
+          "main_class_id": 2,
+          "method": {
+            "name": "shipmentInfo",
+            "modifiers": [
+              "PUBLIC"
+            ],
+            "type": {
+              "name": "double",
+              "type_arguments": []
+            },
+            "parameters": []
+          },
+          "call_method": {
+            "name": "getPrice",
+            "modifiers": [
+              "PUBLIC"
+            ],
+            "type": {
+              "name": "double",
+              "type_arguments": []
+            },
+            "parameters": []
+          },
+          "call_method_class_name": "Shipment",
+          "is_call_method_class_super_class": false
+        }
+      ]
+    },
+    {
+      "type": "class",
+      "class_id": 4,
+      "name": "TestClass",
+      "is_abstract": false,
+      "is_interface": false,
+      "related_requirements": [
+        {
+          "type": "method",
+          "main_class_id": 4,
+          "method": {
+            "name": "main",
+            "modifiers": [
+              "PUBLIC",
+              "STATIC"
+            ],
+            "type": {
+              "name": "void",
+              "type_arguments": []
+            },
+            "parameters": [
+              {
+                "name": "args",
+                "type": {
+                  "name": "String[]",
+                  "type_arguments": []
+                }
+              }
+            ]
+          },
+          "overriding_super_class_method": false,
+          "overriding_super_class_method_name": ""
+        }
+      ]
+    },
+    {
+      "type": "class",
+      "class_id": 3,
+      "name": "InputFrame",
+      "is_abstract": false,
+      "is_interface": false,
+      "related_requirements": [
+        {
+          "type": "extend-name",
+          "main_class_id": 3,
+          "extend_type_name": "JFrame"
+        },
+        {
+          "type": "contains-field",
+          "main_class_id": 3,
+          "field": {
+            "name": "branches",
+            "modifiers": [
+              "PRIVATE"
+            ],
+            "type": {
+              "name": "ArrayList",
+              "type_arguments": [
+                {
+                  "name": "Branch",
+                  "type_arguments": []
+                }
+              ]
+            }
+          },
+          "include_setter": false,
+          "include_getter": false
+        },
+        {
+          "type": "contains-field",
+          "main_class_id": 3,
+          "field": {
+            "name": "branchNameField",
+            "modifiers": [
+              "PRIVATE"
+            ],
+            "type": {
+              "name": "JTextField",
+              "type_arguments": []
+            }
+          },
+          "include_setter": false,
+          "include_getter": false
+        },
+        {
+          "type": "contains-field",
+          "main_class_id": 3,
+          "field": {
+            "name": "calculateBranchCostButton",
+            "modifiers": [
+              "PRIVATE"
+            ],
+            "type": {
+              "name": "JButton",
+              "type_arguments": []
+            }
+          },
+          "include_setter": false,
+          "include_getter": false
+        },
+        {
+          "type": "constructor",
+          "main_class_id": 3,
+          "constructor_req": {
+            "modifiers": [
+              "PUBLIC"
+            ],
+            "parameters": [
+              {
+                "name": "branches",
+                "type": {
+                  "name": "ArrayList",
+                  "type_arguments": [
+                    {
+                      "name": "Branch",
+                      "type_arguments": []
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
